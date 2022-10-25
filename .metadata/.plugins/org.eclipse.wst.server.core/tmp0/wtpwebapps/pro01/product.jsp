@@ -75,7 +75,7 @@
                 <a href="index.jsp" class="home">HOME</a> &gt;
                 <select name="sel1" id="sel1" class="sel">
                     <option>메뉴소개</option>
-                    <option value="product.jsp#page1">메뉴소개</option>
+                    <option value="product.jsp#page1">김밥천국소개</option>
                     <option value="service.jsp#page1">창업안내</option>
                 </select> &gt; 
                 <select name="sel2" id="sel2" class="sel">

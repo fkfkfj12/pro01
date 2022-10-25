@@ -1,0 +1,83 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.*,java.sql.*"%>
+<% 
+	request.setCharacterEncoding("UTF-8");
+	response.setCharacterEncoding("UTF-8");
+	response.setContentType("text/html; charset=UTF-8");
+	
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	
+	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String dbid = "system";
+	String dbpw = "1234";
+	String sql = "";
+	
+	try {
+			Class.forName("oracle.jdbc.OracleDriver");
+			con = DriverManager.getConnection(url, dbid, dbpw);
+			sql = "select * from boarda";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+	
+%>
+<!DOCTYPE html >
+<html>
+<head>
+<%@ include file="head.jsp" %>
+<link rel="stylesheet" href=".css/reset2.css">
+<link rel="stylesheet" href="header.css">
+<meta  charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="footer.css">
+</head>
+<body>
+<div class="wrap"></div>
+<header class="hd">
+	<%@ include file="nav.jsp" %>
+</header>
+<div class="content"></div>
+	<figure class="vs">
+		<img src="./img/con1.jpg" alt="비주얼">
+	</figure>
+<div class="">
+	<table>
+		<thead>
+			<tr>
+				<th>연번</th>
+				<th>글제목</th>
+				<th>작성자</th>
+			</tr>
+		</thead>
+		<tbody>
+<%
+	int cnt = 0;
+	while(rs.next()){
+		cnt+=1;
+
+%>
+			<tr>
+				<td><%=cnt %></td>
+				<td><a href='BoardListInfo.jsp'><%=rs.getString("title") %></a></td>
+				<td><%=rs.getString("author") %></td>
+			</tr>
+<%
+}
+	} catch(Exception e){
+			e.printStackTrace();
+	} finally {
+			rs.close();
+			pstmt.close();
+			con.close();
+	}
+%>
+		</tbody>
+	</table>
+<footer class="ft">
+	<%@ include file="footer.jsp" %>
+</footer>
+</div>
+</body>
+</html>

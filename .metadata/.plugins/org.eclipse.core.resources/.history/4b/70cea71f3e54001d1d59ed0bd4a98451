@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.*,java.sql.*"%>
+<% 
+	request.setCharacterEncoding("UTF-8");
+	response.setCharacterEncoding("UTF-8");
+	response.setContentType("text/html; charset=UTF-8");
+	
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	
+	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String dbid = "system";
+	String dbpw = "1234";
+	String sql = "";
+	
+	
+%>
+<!DOCTYPE html >
+<html>
+<head>
+<meta  charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div class="">
+	<table>
+		<thead>
+			<tr>
+				<th>연번</th>
+				<th>글제목</th>
+				<th>작성자</th>
+			</tr>
+		</thead>
+		<tbody>
+<%
+	int cnt = 0;
+	while(rs.next()){
+		cnt+=1;
+
+%>
+			<tr>
+				<td><%=cnt %></td>
+				<td><a href='BoardListInfo.jsp</a><%=rs.getString("title") %></td>
+				<td><%=rs.getString("author") %></td>
+			</tr>
+<%
+}
+%>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

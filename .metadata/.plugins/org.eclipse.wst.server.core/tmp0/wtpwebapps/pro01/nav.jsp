@@ -2,16 +2,21 @@
     pageEncoding="UTF-8"%>
 <%
 	String id = (String) session.getAttribute("id");
+	String email = (String) session.getAttribute("email");
+	String name = (String) session.getAttribute("name");
+	String msg = (String) application.getAttribute("msg");
 %>
         <div class="hd_wrap">
-            <a href="" class="logo"><img src="./img/top_logo.png" alt="로고"></a>
+            <a href="index.jsp" class="logo">
+            <img src="./img/top_logo.png" alt="로고">
+            </a>
             <nav class="tnb">
 	<%
     if(id!=null && id.equals("admin")){
 	%>
     		<div>
     			<a href="memList.jsp">회원관리</a>
-				<a href="boardList.jsp">게시판관리</a>
+				<a href="BoardList.jsp">게시글목록</a>
                 <a href="logout.jsp">로그아웃</a>
                 <a href="sitemap.jsp">사이트맵</a>
 			</div>
@@ -19,10 +24,11 @@
     } else if(id!=null){
     %>
     		<div>
-    			<span class="ip_print"> <%=id %> 님</span>
+    			<span class="name_print"> <%=name %> 님</span>
                 <a href="logout.jsp">로그아웃</a>
-                <a href="memInfo.jsp">회원정보</a>
+                <a href="memberInfo.jsp">회원정보</a>
                 <a href="sitemap.jsp">사이트맵</a>
+                <a href="BoardList.jsp">게시글목록</a>
             </div>
     		
 	<%
@@ -30,8 +36,9 @@
 	%>
 	   		<div>
 				<a href="login.jsp">로그인</a>
-                <a href="join.jsp">회원가입</a>
+                <a href="term.jsp">회원가입</a>
                 <a href="sitemap.jsp">사이트맵</a>
+                <a href="BoardList.jsp">게시글목록</a>
 			</div>
 <%
 }
