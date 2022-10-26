@@ -28,7 +28,6 @@
                 <a href="logout.jsp">로그아웃</a>
                 <a href="memberInfo.jsp">회원정보</a>
                 <a href="sitemap.jsp">사이트맵</a>
-                <a href="BoardList.jsp">게시글목록</a>
             </div>
     		
 	<%
@@ -38,7 +37,6 @@
 				<a href="login.jsp">로그인</a>
                 <a href="term.jsp">회원가입</a>
                 <a href="sitemap.jsp">사이트맵</a>
-                <a href="BoardList.jsp">게시글목록</a>
 			</div>
 <%
 }
@@ -68,7 +66,7 @@
                         <ul class="sub">
                             <li><a href="service.jsp#page1">개설안내</a></li>
                             <li><a href="service.jsp#page2">창업비용</a></li>
-                            <li><a href="service.jsp#page3">가맹문의</a></li>
+                            <li><a href="BoardList.jsp">게시판</a></li>
                         </ul>
                     </li>
                 </ul>
