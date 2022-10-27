@@ -4,12 +4,12 @@
 <% String sid = (String) session.getAttribute("id"); 
 	String author = "";
 %>
+<% 	int no = Integer.parseInt(request.getParameter("no")); %>
 <%@ include file = "connectionPool.conf" %>
 <%
-	int no = Integer.parseInt(request.getParameter("no"));
-	sql = "select a.no no, a.title tit,a.content cont,a.author author, b.name nm, to_char(a.resdate, 'yyyy-MM-dd') res from boarda a inner join membera b on a.author=b.id where no=?";
+
+	sql = "select * from faqa order by parno asc, gubun asc";
 	pstmt = con.prepareStatement(sql);
-	pstmt.setInt(1,no);
 	rs = pstmt.executeQuery();
 %>
 
@@ -18,7 +18,7 @@
 <head>
 <%@ include file = "head.jsp" %>
 <meta  charset="UTF-8">
-<title>글 상세 보기</title>
+<title>자주하는 질문 상세보기</title>
 </head>
 <body>
 <%@ include file = "nav.jsp" %>
@@ -32,31 +32,31 @@
 	</tr>
 	<tr>
 		<th>제목</th>
-		<td><%=rs.getString("tit") %></td>
+		<td><%=rs.getString("title") %></td>
 	</tr>
 	<tr>
 		<th>내용</th>
-		<td><%=rs.getString("cont") %></td>
+		<td><%=rs.getString("content") %></td>
 	</tr>
 	<tr>
 		<th>작성자</th>
-		<td><%=rs.getString("nm") %></td>
+		<td><%=rs.getString("author") %></td>
 	</tr>
 	<tr>
 		<th>작성일</th>
-		<td><%=rs.getString("res") %></td>
+		<td><%=rs.getString("resdate") %></td>
 	</tr>
 <% } %>
 </tbody>
 </table>
 </div>
 <div class="btn_group">
-	<a href="boardList.jsp" class="btn primary">게시판 목록</a>
+	<a href="faqa.jsp" class="btn primary">자주하는질문목록</a>
 	<%
 		if(sid.equals("admin") || sid.equals(author)) {
 	%>
-	<a href='boardModify.jsp?no=<%=rs.getInt("no") %>' class="btn primary">글 수정</a>
-	<a href='boardDel.jsp?no=<%=rs.getInt("no") %>' class="btn primary">글 삭제</a>
+	<a href='faqaModify.jsp?no=<%=rs.getInt("no") %>' class="btn primary">글 수정</a>
+	<a href='faqaDel.jsp?no=<%=rs.getInt("no") %>' class="btn primary">글 삭제</a>
 	<% } %>
 	<%@ include file = "connectionClose.conf" %>
 </div>

@@ -72,14 +72,14 @@
             <div class="page_wrap">
                 <h2 class="page_title">글 수정하기</h2>
                 <%@ include file="connectionPool.conf" %>
-                <% sql="select * from boarda where no=?";
+                <% sql="select * from faqa where no=?";
 					pstmt = con.prepareStatement(sql);
 					pstmt.setInt(1,no);
 					rs=pstmt.executeQuery();
 					if(rs.next()){
                 		%>
   				<div class="frm1">
-  					<form name="frm" action="boardModifyPro.jsp" method="post" class="frm">
+  					<form name="frm" action="faqaModifyPro.jsp" method="post" class="frm">
   					<input type="hidden" name="no" id="no" value='<%=rs.getInt("no") %>' required>
 	  					<table class="tb">
 	  						<tbody>             
@@ -105,7 +105,7 @@
 						<%@ include file="connectionClose.conf" %>
 						<div class="btn_group">
 							<button type="submit" class="btn primary">글 수정하기</button>
-							<a href="boardList.jsp" class="btn primary">게시판 목록</a>
+							<a href="faqa.jsp" class="btn primary">게시판 목록</a>
 						</div>
 					</form>
 				</div>

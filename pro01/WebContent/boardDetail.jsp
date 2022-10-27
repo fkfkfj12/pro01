@@ -133,7 +133,7 @@
 						</tbody> 
 					</table>
 					<div class="btn_group">
-						<a href="boardList.jsp" class="btn primary">게시판 목록</a>
+						<a href="BoardList2.jsp" class="btn primary">게시판 목록</a>
 						<%
 							if(sid.equals("admin") || sid.equals(author)) {
 						%>

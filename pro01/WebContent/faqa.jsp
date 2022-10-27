@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*,java.sql.*"%>
-<% 
+<%@ page import="java.util.Date, java.sql.*, java.text.*" %>
+<%
 	request.setCharacterEncoding("UTF-8");
 	response.setCharacterEncoding("UTF-8");
 	response.setContentType("text/html; charset=UTF-8");
 	
 	String sid = (String) session.getAttribute("id");
+	
 	Connection con = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
@@ -15,22 +16,22 @@
 	String dbid = "system";
 	String dbpw = "1234";
 	String sql = "";
-
-	try {
-			Class.forName("oracle.jdbc.OracleDriver");
-			con = DriverManager.getConnection(url, dbid, dbpw);
-			sql = "select * from boarda";
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
 	
+	try {
+		Class.forName("oracle.jdbc.OracleDriver");
+		con = DriverManager.getConnection(url, dbid, dbpw);
+		sql = "select * from faqa order by parno asc, gubun asc";
+		pstmt = con.prepareStatement(sql);
+		rs = pstmt.executeQuery();
+		
 %>
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html>
 <head>
-<%@ include file="head.jsp" %>
-<link rel="stylesheet" href=".css/reset2.css">
-<link rel="stylesheet" href="header.css">
-        <style>
+	<%@ include file="head.jsp" %>
+    <link rel="stylesheet" href="./css/reset2.css">
+    <link rel="stylesheet" href="header.css">
+    <style>
     /* header.css */
     .hd { position:fixed; }
     /* content */
@@ -61,85 +62,88 @@
 	.btn_group .btn.primary { background-color:#333; color:#fff; }
 	.btn_group .btn.primary:hover { background-color:deepskyblue; }
     </style>
-<meta  charset="UTF-8">
-<title>Insert title here</title>
-	<link rel="stylesheet" href="footer.css">
-    <link rel="stylesheet" href="datatables.min.css">
-    <script src="./js/datatables.min.js"></script> 
-    <script>
-    $(document).ready( function () {
-    	$('#myTable').dataTable();
-	});
-    </script>
+    <link rel="stylesheet" href="footer.css">
 </head>
 <body>
-	<div class="wrap"></div>
-<header class="hd">
-	<%@ include file="nav.jsp" %>
-</header>
-<div class="content"></div>
-	<figure class="vs">
-		<img src="./img/con1.jpg" alt="비주얼">
-	</figure>
-	<div class="bread">
-		<div class="bread_fr">
-		<a href="index.jsp" class="home">HOME</a>&gt;
-		<span class="sel">게시글목록</span>
-		</div>
-	</div>
-<section class="page">
+<div class="wrap">
+    <header class="hd">
+		<%@ include file="nav.jsp" %>
+    </header>
+    <div class="content">
+        <figure class="vs">
+            <img src="./img/vs1.jpg" alt="비주얼">
+        </figure>
+        <div class="bread">
+            <div class="bread_fr">
+                <a href="index.jsp" class="home">HOME</a> &gt;
+                <span class="sel">자주하는 질문</span>
+            </div>
+        </div>
+        <section class="page">
             <div class="page_wrap">
-                <h2 class="page_title">게시판 글 목록</h2>
+                <h2 class="page_title">자주하는 질문</h2>
   				<div class="tb_fr">
-  					<table class="tb" id="myTable">
-					<thead>
-						<tr>
-							<th>연번</th>
-							<th>글제목</th>
-							<th>작성자</th>
-						</tr>
-					</thead>
-					<tbody>
+  					<table class="tb">
+  						<thead>
+  							<tr>
+  								<th>연번</th>
+  								<th>제목</th>
+  								<th>작성자</th>
+  								<th>작성일</th>
+  							</tr>
+  						</thead>
+  						<tbody>             
 <%
 		int cnt = 0;
 		while(rs.next()){
 			cnt+=1;
-
+			SimpleDateFormat yymmdd = new SimpleDateFormat("yyyy-MM-dd");
+			String date = yymmdd.format(rs.getDate("resdate"));
 %>
-					<tr>
-						<td><%=cnt %></td>
-						<td><a href='boardDetail.jsp?no=<%=rs.getInt("no") %>'><%=rs.getString("title") %></a></td>
-						<td><%=rs.getString("author") %></td>
-					</tr>
-										
+			<tr>
+					<td><%=cnt %></td>
+					<%
+					if(rs.getInt("gubun")==1) {
+					%>
+						<td><a href='faqaDetail.jsp?no=<%=rs.getInt("no") %>'style="padding-left: 50px;"><%=rs.getString("title") %></a></td>
+					<%
+					} else {
+					%>
+						<td><a href='faqaDetail.jsp?no=<%=rs.getInt("no") %>'><%=rs.getString("title") %></a></td>
+					<%
+					}
+					%>
+					<td><%=rs.getString("author") %></td>
+					<td><%=date %></td>
+			</tr>
 <%
 		}
 	} catch(Exception e){
-			e.printStackTrace();
+		e.printStackTrace();
 	} finally {
-			rs.close();
-			pstmt.close();
-			con.close();
+		rs.close();
+		pstmt.close();
+		con.close();
 	}
 %>
-		</tbody>
-	</table>
-	<div class="btn_group">
-	<%
-		if(sid!=null) {
-	%>
-		<a href="boardWrite2.jsp" class="btn primary">글 쓰기</a>
-	<%
-		}
-	%>
-	</div>
-	</div>
-	</div>
-	</section>
-<footer class="ft">
-	<%@ include file="footer.jsp" %>
-</footer>
-
-
+						</tbody> 
+					</table>
+					<div class="btn_group">
+					<%
+						if(sid.equals("admin")) {
+					%>
+						<a href="faqaWrite.jsp" class="btn primary">글 쓰기</a>
+					<%
+						}
+					%>
+					</div>
+				</div>
+			</div>
+        </section>
+    </div>
+    <footer class="ft">
+		<%@ include file="footer.jsp" %>
+    </footer>
+</div>
 </body>
 </html>
