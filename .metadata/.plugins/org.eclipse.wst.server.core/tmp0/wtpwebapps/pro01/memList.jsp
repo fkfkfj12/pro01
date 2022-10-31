@@ -64,7 +64,7 @@
     </header>
     <div class="content">
         <figure class="vs">
-            <img src="./img/vs1.jpg" alt="비주얼">
+            <img src="./img/figure1.jpg" alt="비주얼">
         </figure>
         <div class="bread">
             <div class="bread_fr">
@@ -93,7 +93,7 @@
 %>
 			<tr>
 					<td><%=cnt %></td>
-					<td><a href='memberInfo.jsp?id=<%=rs.getString("id") %>'><%=rs.getString("id") %></a></td>
+					<td><a href='meminfo.jsp?id=<%=rs.getString("id") %>'><%=rs.getString("id") %></a></td>
 					<td><%=rs.getString("name") %></td>
 					<td><%=rs.getString("regdate") %></td>
 			</tr>

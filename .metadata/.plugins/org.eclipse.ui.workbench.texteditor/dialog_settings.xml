@@ -9,22 +9,25 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="trim" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="trim"/>
-			<item value="apply"/>
-			<item value="f"/>
-			<item value="f.id"/>
-			<item value="frm"/>
-			<item value="btn"/>
-			<item value="idck"/>
-			<item value="pw"/>
+			<item value="./img/vs1.jpg"/>
+			<item value="admin"/>
+			<item value="mem"/>
+			<item value="author"/>
+			<item value="}"/>
+			<item value="{"/>
+			<item value="required"/>
+			<item value="1required"/>
 		</list>
 		<list key="replacehistory">
+			<item value="./img/figure1.jpg"/>
+			<item value="resdate"/>
+			<item value="regdate"/>
 			<item value=".jsp"/>
 		</list>
 	</section>

@@ -1,0 +1,5 @@
+package com.kimbab.util;
+
+public class SMTPAuthenticatior {
+
+}

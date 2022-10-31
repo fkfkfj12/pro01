@@ -74,7 +74,7 @@
     </header>
     <div class="content">
         <figure class="vs">
-            <img src="./img/vs1.jpg" alt="비주얼">
+            <img src="./img/figure1.jpg" alt="비주얼">
         </figure>
         <div class="bread">
             <div class="bread_fr">

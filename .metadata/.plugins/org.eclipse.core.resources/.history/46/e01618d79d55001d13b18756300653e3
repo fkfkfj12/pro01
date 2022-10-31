@@ -1,0 +1,15 @@
+package pro01.test;
+
+import java.util.logging.Logger;
+
+import org.junit.Test;
+
+public class oracletest {
+	private final  static Logger log = Logger.getGlobal();
+	@Test
+	public void test() {
+		log.info("test");
+		//fail("Not yet implemented");
+	}
+
+}

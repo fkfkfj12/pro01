@@ -16,7 +16,7 @@
 	%>
     		<div>
     			<a href="memList.jsp">회원관리</a>
-				<a href="BoardList.jsp">게시글목록</a>
+				<a href="BoardList2.jsp">게시글목록</a>
                 <a href="logout.jsp">로그아웃</a>
                 <a href="sitemap.jsp">사이트맵</a>
 			</div>
@@ -26,9 +26,8 @@
     		<div>
     			<span class="name_print"> <%=name %> 님</span>
                 <a href="logout.jsp">로그아웃</a>
-                <a href="memberInfo.jsp">회원정보</a>
+                <a href="meminfo.jsp">회원정보</a>
                 <a href="sitemap.jsp">사이트맵</a>
-                <a href="BoardList.jsp">게시글목록</a>
             </div>
     		
 	<%
@@ -38,7 +37,6 @@
 				<a href="login.jsp">로그인</a>
                 <a href="term.jsp">회원가입</a>
                 <a href="sitemap.jsp">사이트맵</a>
-                <a href="BoardList.jsp">게시글목록</a>
 			</div>
 <%
 }
@@ -64,11 +62,15 @@
                         </ul>
                     </li>
                     <li class="item3">
-                        <a href="" class="dp1">창업안내</a>
+                        <a href="" class="dp1">고객지원</a>
                         <ul class="sub">
-                            <li><a href="service.jsp#page1">개설안내</a></li>
-                            <li><a href="service.jsp#page2">창업비용</a></li>
-                            <li><a href="service.jsp#page3">가맹문의</a></li>
+                            <li><a href="faq.jsp">자주하는질문</a></li>
+                            <li><a href="qnaList.jsp">질문게시판</a></li>
+                            <li><a href="BoardList2.jsp">게시판</a></li>
+                             <% if(id!=null){ %>
+                    		<li><a href="online.jsp">온라인 상담</a></li>
+                    		<% } %>
+  
                         </ul>
                     </li>
                 </ul>

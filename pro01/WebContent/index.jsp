@@ -209,7 +209,7 @@ padding-left: 100px; }
         </section>
         <section class="page" id="page3">
             <div class="page_wrap">
-                <h2 class="page_tit">믿고 맡길 수 있는<br>WE DISPLAY<br>전문 파트너스</h2>
+                <h2 class="page_tit">믿고 맡길 수 있는<br>김밥천국<br>파트너스</h2>
                 <ul class="circle_lst lst1">
                     <li><a href=""><img src="./img/lo1.png" alt="파트너스01" class="thumb"></a></li>
                     <li><a href=""><img src="./img/lo2.png" alt="파트너스02" class="thumb"></a></li>
