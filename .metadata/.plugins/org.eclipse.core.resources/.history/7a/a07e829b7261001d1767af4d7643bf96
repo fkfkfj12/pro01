@@ -1,0 +1,17 @@
+package kr.go.chuncheon.model;
+
+public class Maria {
+	final static String DRIVER = "oracle.mariadb.Driver";
+	final static String URL = "jdbc:mariadb:127.0.0.1:3308/govment?serverTimezone=Asia/Seoul";
+	final static String USER = "root";
+	final static String PASS = "1234";
+	
+
+	final static String NOTICE_SELECT_ALL = "select * from notice order by notino";
+	final static String NOTICE_INSERT = "inser into notice(title,content)values(?,?)";
+	
+	final static String USER_JOIN = "insert into user(id,pw,name,birth,email,tel,address)values(?,?,?,?,?,?,?)";
+	final static String USER_LOGIN = "select * from user where id=? and pw=?";
+	final static String USER_ID_CHECK = "select * from user where id=?";
+
+}

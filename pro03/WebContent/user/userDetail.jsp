@@ -1,0 +1,59 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="java.util.*, java.lang.*" %>
+<%@ page import="java.text.*, java.net.InetAddress" %>
+<c:set var="path1" value="<%=request.getContextPath() %>" />
+<%-- <c:set var="path1" value="${pageContext.request.contextPath }" />   --%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>공지사항 상세보기</title>
+    <jsp:include page="/head.jsp" />
+  </head>
+  <body>
+  <jsp:include page="/header.jsp" />
+  <section class="section">
+    <div class="container">
+      <h1 class="title">회원정보 상세보기</h1>
+		<table class="table">
+		   <tbody>
+		    <tr>
+		      <th>아이디</th>
+		      <td>${dto.id }</td>
+		    </tr>
+		    <tr>
+		      <th>이름</th>
+		      <td>${dto.name }</td>
+		    </tr>
+		    <tr>
+		      <th>생일</th>
+		      <td><p>${dto.birth }</p></td>
+		    </tr>
+		    <tr>
+		      <th>이메일</th>
+		      <td><p>${dto.email }</p></td>
+		    </tr>
+		    <tr>
+		      <th>전화</th>
+		      <td><p>${dto.tel }</p></td>
+		    </tr>
+		    <tr>
+		      <th>주소</th>
+		      <td><p>${dto.address }</p></td>
+		    </tr>
+		  </tbody>
+		</table>
+		<div class="buttons">
+		  <a href="${path1 }/GetUserListCtrl.do" class="button is-info">회원목록</a>
+		  <a href="${path1 }/DelUserCtrl.do?id=${dto.id }" class="button is-danger">회원 삭제</a>
+		  <a href="${path1 }/ModifyUserCtrl.do?id=${dto.id }" class="button is-warning">회원 수정</a>
+		</div>
+    </div>
+  </section>
+  <jsp:include page="/footer.jsp"></jsp:include>
+  </body>
+</html>

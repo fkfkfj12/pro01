@@ -121,7 +121,7 @@ line-height:24px; border-radius:36px; border:2px solid #333; text-align:center; 
 					<td>
 					<% 
 						if(rs.getInt("lev")==0) {
-							if(rs.getString("sec").equals("Y")) {
+							if(rs.getString("sec").equals("1")) {
 								if(uid.equals(rs.getString("author")) || uid.equals("admin")){
 					%>
 									<a href='qnaDetail.jsp?no=<%=rs.getInt("no") %>' class="sec1"><%=rs.getString("title") %></a>
@@ -131,7 +131,7 @@ line-height:24px; border-radius:36px; border:2px solid #333; text-align:center; 
 									<span class="sec1"><%=rs.getString("title") %></span>
 					<%
 								}
-							} else if(rs.getString("sec").equals("N") && uid!="guest"){
+							} else if(rs.getString("sec").equals("0") && uid!="guest"){
 					%>	
 									<a href='qnaDetail.jsp?no=<%=rs.getInt("no") %>'><%=rs.getString("title") %></a>
 					<%
@@ -143,7 +143,7 @@ line-height:24px; border-radius:36px; border:2px solid #333; text-align:center; 
 					%>
 					<% 
 						} else {
-							if(rs.getString("sec").equals("Y")) {
+							if(rs.getString("sec").equals("1")) {
 								if(uid.equals(rs.getString("author")) || uid.equals("admin")){
 					%>
 									<a href='qnaDetail.jsp?no=<%=rs.getInt("no") %>' style="padding-left:60px;" class="sec2"><%=rs.getString("title") %></a>
@@ -153,7 +153,7 @@ line-height:24px; border-radius:36px; border:2px solid #333; text-align:center; 
 									<span style="padding-left:60px;" class="sec2"><%=rs.getString("title") %></span>				
 					<%
 								}		
-							} else if(rs.getString("sec").equals("N") && uid!="guest"){
+							} else if(rs.getString("sec").equals("0") && uid!="guest"){
 					%>
 								<a href='qnaDetail.jsp?no=<%=rs.getInt("no") %>' style="padding-left:60px;"><%=rs.getString("title") %></a>						
 					<%

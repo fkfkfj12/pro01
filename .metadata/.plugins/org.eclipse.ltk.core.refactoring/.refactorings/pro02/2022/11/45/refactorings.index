@@ -1,0 +1,35 @@
+1667285894944	Rename package 'ko.co.myshop.cti'
+1667290665372	Rename type 'boardListCtrl'
+1667293111090	Move 'BoardList.jsp' to 'Notice'
+1667293195995	Move folder
+1667293217536	Move compilation unit
+1667293245354	Rename type 'BoardListCtrl'
+1667351454020	Rename type 'Memberlogincti'
+1667351598252	Move file
+1667351631720	Delete element
+1667351675903	Delete element
+1667351681465	Delete element
+1667351820838	Rename package 'kr.co.myshoop.view'
+1667351893687	Rename resource 'boardDetail.jsp'
+1667356222641	Rename type 'InsertBoardpro'
+1667360126304	Delete element
+1667360234685	Rename type 'GetBoardListCtrl'
+1667361315441	Delete element
+1667369501924	Rename package 'view'
+1667369530443	Delete element
+1667369552402	Copy package
+1667369555273	Delete element
+1667369589444	Delete element
+1667523949434	Delete element
+1667524369235	Copy package
+1667524378681	Copy package
+1667524384019	Delete element
+1667524388652	Delete element
+1667524621357	Rename compilation unit 'InitParamServelt.java'
+1667524694333	Rename compilation unit 'idCheckCtrl.java'
+1667524733243	Rename compilation unit 'GetCustomlnfoCtrl.java'
+1667524968800	Delete element
+1667525838677	Rename resource 'Custom'
+1667536710359	Move compilation unit
+1667536762295	Delete element
+1667546979284	Delete element

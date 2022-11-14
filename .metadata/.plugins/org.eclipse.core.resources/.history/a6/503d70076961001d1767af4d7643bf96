@@ -1,0 +1,10 @@
+package kr.go.chuncheon.model;
+
+public class Maria {
+	public final static String NOTICE_SELECT_ALL = "select * from notice order by notino";
+	public final static String NOTICE_INSERT = "inser into notice(title,content)values(?,?);"
+	public final static String USER_JOIN = "insert into user(id,pw,name,birth,email,tel,address)values(?,?,?,?,?,?,?);"
+	public final static String USER_LOGIN = "select * from user where id=? and pw=?";
+	public final static String USER_ID_CHECK = "select * from user where id=?";
+
+}

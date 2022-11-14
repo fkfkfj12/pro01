@@ -1,0 +1,39 @@
+package kr.go.chuncheon.test;
+
+import java.util.logging.Logger;
+import java.sql.*;
+import org.junit.Test;
+
+public class mariadbtest {
+	private final static Logger log = Logger.getGlobal();
+	private final static String DRIVER = "oracle.mariadb.Driver";
+	private final static String URL = "jdbc:mariadb:127.0.0.1:3308/govment?serverTimezone=Asia/Seoul";
+	private final static String USER = "root";
+	private final static String PASS = "1234";
+	
+	@Test
+	public void connectionTest() throws ClassNotFoundException {
+		
+		Class.forName(DRIVER);
+		
+		String sql = "select now() as time";
+		try(
+			Connection conn = DriverManager.getConnection(URL,USER,PW);
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			) {
+			
+			assertNotNull(conn);
+			log.info("conn : " + conn);
+			log.info("pstmt : " + pstmt);
+			
+			rs.next();
+			log.info(rs.getString("time"));
+			rs.close();
+			pstmt.close();
+			conn.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}	
+}

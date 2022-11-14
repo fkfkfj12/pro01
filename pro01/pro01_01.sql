@@ -21,4 +21,7 @@ select * from faqa order by parno asc, gubun asc;
 
 select a.no no, a.title tit, a.content con, b.name nm, to_char(a.resdate, 'yyyy-MM-dd') res from board a inner membera b on a.author=b.id where a.no?;
 
+
+select * from qnaa order by parno desc, lev asc, no asc
+
 select sysdate now from dual
