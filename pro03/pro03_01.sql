@@ -1,8 +1,8 @@
 CREATE TABLE test(NAME VARCHAR(50), point INT);
 DROP TABLE test;
-INSERT INTO test(NAME,point) VALUES("jbj",100);
+INSERT INTO test(NAME,point) VALUES("김기태",100);
 INSERT INTO test VALUES("김도연",80);
-
+COMMIT;
 SELECT * FROM test;
 
 CREATE TABLE notice(
@@ -18,4 +18,41 @@ INSERT INTO notice(title, content) VALUES ("테스트 글1", "테스트 글2 내
 
 COMMIT;
 
-SELECT * FROM notice;govmentgovmentgoverment
+SELECT * FROM notice;
+
+
+SELECT * FROM user;
+
+DROP table notice;
+DROP table user;
+DROP TABLE test;
+
+CREATE TABLE USER(
+	id VARCHAR(30) PRIMARY KEY,
+	pw VARCHAR(300) NOT NULL,
+	NAME VARCHAR(50) NOT NULL,
+	POINT INT DEFAULT 0,
+	grade VARCHAR(4) DEFAULT "F",
+	visted INT DEFAULT 1,
+	tel VARCHAR(11),
+	addr VARCHAR(150),
+	email VARCHAR(100),
+	birth DATE,
+	regdate DATETIME DEFAULT NOW()
+);
+UPDATE user SET grade="A" WHERE id="admin";
+CREATE TABLE tour(
+NO INT PRIMARY KEY AUTO_INCREMENT,
+tourno VARCHAR(20),
+cate VARCHAR(20),
+place VARCHAR(100),
+COMMENT1 VARCHAR(1000),
+commnet2 VARCHAR(1000)
+);
+
+CREATE TABLE pic(
+NO INT PRIMARY KEY AUTO_INCREMENT,
+tourno VARCHAR(20),
+picname VARCHAR(150),
+pos INT DEFAULT 1);
+DESC user;

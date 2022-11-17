@@ -30,11 +30,13 @@
 		    </tr>
 		    <tr>
 		      <th>제목</th>
-		      <td><input type="text" class="input" maxlength="120" name="title" id="title" placeholder="제목 입력" value="${dto.title }" required /></td>
+		      <td><input type="text" class="input" maxlength="120" name="title" id="title"
+		       placeholder="제목 입력" value="${dto.title }" required /></td>
 		    </tr>
 		    <tr>
 		      <th>내용</th>
-		      <td><textarea rows="8" cols="100" name="content" id="content" class="textarea" required>${dto.content }</textarea></td>
+		      <td><textarea rows="8" cols="100" name="content" id="content" class="textarea"
+		       required>${dto.content }</textarea></td>
 		    </tr>
 		  </tbody>
 		</table>

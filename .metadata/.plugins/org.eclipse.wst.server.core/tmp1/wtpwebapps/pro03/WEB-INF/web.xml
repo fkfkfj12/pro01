@@ -6,7 +6,7 @@
     <servlet-class>kr.go.chuncheon.controller.Main</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>t1</servlet-name>
+ 	<servlet-name>t1</servlet-name>
     <url-pattern>/</url-pattern>
-  </servlet-mapping>
+      </servlet-mapping>
 </web-app>
